@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-orange: #fe6602;
+  --color-green: #0cda52;
+  --color-red: #ff6a5c;
+  /* Main Settings */
+
+  --Select-Gradient-1: #8500e5;
+  --Select-Gradient-2: #18007a;
+
+  --background-color: #161b22;
+  --background-secundary: #1c222b;
+  --background-secundary-2: #dadada;
+  --text-color: #ffffff;
+  --text-color-main: #0cda52;
+
+  /*  Buttons MAIN */
+
+  --background-color-btn-main: #8500e5;
+  --background-color-gradient-1: #8500e5;
+  --background-color-gradient-2: #18007a;
+
+  --border-color-btn-main: #00551d;
+  --clicked-color-btn-main: #0cc64b;
+  --background-disable-main: ;
+
+  /*  Buttons NORMAL */
+
+  --text-color-btn: #000000;
+  --background-color-btn: #ffffff;
+  --border-color-btn: #b4b4b46e;
+  --clicked-color-btn: #c2c2c21f;
+
+  /*  Buttons Secundary */
+
+  --text-color-btn-secundary: #000000;
+  --background-color-btn-secundary: #ffffff;
+  --border-color-btn-secundary: #b4b4b4;
+  --clicked-color-btn-secundary: #c2c2c2;
+
+  /*  Input Color */
+  --background-input: #dadada;
+  --text-color-input: #757575;
+  --font-weight-input: 800;
+
+  /* Select Box*/
+  --border-color-select-box: #8500e5;
+  --background-select-box: #ffffff;
+  --Select-Text-color: #000000;
+  --Select-Rounded: 4px;
+
+  --color-noti-bg: #242424;
+  --btn-night: #3c3c3c;
+  --btn-night-border: #3b3b3b;
+}
+
+* {
+  @apply m-0 p-0 box-border uppercase;
+  font-family: 'Montserrat Variable', sans-serif;
+}
+.bg-background {
+  @apply bg-[var(--background-color)];
+}
+.bg-secundary {
+  @apply bg-[var(--background-secundary)];
+}
+.bg-secundary-2 {
+  @apply bg-[var(--background-secundary-2)];
+}
+
+body {
+  @apply bg-transparent overflow-hidden;
+  overflow: overlay;
+}
+button {
+  @apply outline-none !select-none;
+  user-select: none !important;
+}
+#window-back {
+  @apply w-full min-h-screen text-base flex flex-col overflow-hidden;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -webkit-app-region: drag;
+  /*user-select: none; */
+}
+._move {
+  -webkit-app-region: drag;
+}
+._no_move {
+  -webkit-app-region: no-drag;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-secundary-2);
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e41d0bb4;
+}
+
+h1,
+img,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+a,
+button,
+input,
+select,
+textarea,
+ul,
+li,
+ol,
+h6 {
+  user-select: text;
+  -webkit-app-region: no-drag;
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+p {
+  @apply text-base font-normal;
+}
+
+label {
+  @apply text-xl font-normal;
+}
+
+.text-color-main {
+  @apply text-[var(--text-color-main)];
+}
+
+.btn {
+  @apply inline-block outline-none text-center  uppercase    px-9 py-3 border border-transparent  hover:scale-[1.03] transition-all text-base rounded-[4px];
+  color: var(--text-color-btn);
+  background-color: var(--background-color-btn);
+  border-color: var(--background-color-btn);
+  /*transition: ease-in-out 100ms;*/
+}
+.btn:hover {
+  border-color: var(--border-color-btn);
+  opacity: 0.9;
+}
+.btn:active {
+  background-color: var(--clicked-color-btn) !important;
+}
+.btn-main {
+  color: var(--text-color-btn-main) !important;
+  background-color: var(--background-color-btn-main) !important;
+  @apply bg-gradient-to-r from-[var(--background-color-gradient-2)] to-[var(--background-color-gradient-1)];
+}
+.btn-main:hover {
+  border-color: var(--border-color-btn-main) !important;
+}
+.btn-main:active {
+  background-color: var(--clicked-color-btn-main) !important;
+}
+
+.btn-secundary {
+  background-color: var(--background-color-btn-secundary) !important;
+}
+
+.scroll-downs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+
+  width: 24px;
+  height: 15px;
+}
+.mousey {
+  width: 3px;
+  padding: 0px 4px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.scroller {
+  width: 3px;
+  height: 4px;
+  border-radius: 25%;
+  background-color: black;
+  animation-name: scroll;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
